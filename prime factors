@@ -1,0 +1,34 @@
+number = int(input("Enter a number: ")) 
+while number>1000000  :
+    number = int(input("Enter a number: "))
+
+
+
+flag = 0
+for divisor in range (2,number):
+    if number % divisor == 0 :             #αν ο number διαιρείται με κάποιον αριθμό από το 2 μέχρι και τον εαυτό του τότε δεν είναι πρώτος αριθμός
+      
+        flag = 0
+    else:
+        flag = 1
+            
+        
+        
+   
+    
+    
+    
+
+primefactors = []
+divisor = 2
+while number > 1:     # αν ο αριθμός δεν είναι το 1 τότε ξεκινάμε τις διαιρέσεις
+    if flag == 1 :        # αν ο αρθμός είναι primer
+        if number % divisor == 0:      #ο divisor είναι διαιρέτης του number
+
+            number = number / divisor      #κάνουμε την διαίρεση 
+            primefactors.append(divisor)   #κρατάμε τον διαιρέτη σε λίστα
+        else:
+            divisor +=1
+    else:
+        divisor +=1
+print ('* '.join(map(str, primefactors)))
