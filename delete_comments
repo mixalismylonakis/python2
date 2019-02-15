@@ -1,0 +1,16 @@
+with open(commentfile1, 'r') as file:   # διαβάζουμε το  file που περιέχει τα σχόλια(commentfile)
+    lines = file.readlines()
+
+with open(nocommentfile1, 'w') as file:    #ξαναγράφουμε το περιεχόμενο του commentfile στο αρχείο nocommentfile διορθώνοντας τα σχόλια 
+    for counter in lines:              
+      
+        if not counter.strip():        #κενές γραμμέσ και χωρίς σχόλια   ξαναγράφονται 
+            file.writelines(line)
+
+        else:
+            counter = counter.split('#')              #αφαιρούμε μόνο τις γραμμές με σχόλια
+            stripped_string = counter[0].rstrip()
+            
+            if stripped_string:
+                file.writelines(stripped_string)  #ξαναγράφουμε χωρίς σχόλια τις επεξεργασμένες γραμμές
+                file.writelines('\n')   
